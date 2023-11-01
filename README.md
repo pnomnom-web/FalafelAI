@@ -32,7 +32,8 @@ This is for providing virtual dependencies for the project. You need to manually
 1. Execute `python .\flaskr\app.py`
 2. Go to http://localhost:5000
 3. Yipee
-**You will need to manually close the project and rerun it again to have changes take place. I'll try to find a way to streamline the process so it changes 
+
+**You will need to manually close the project and rerun it again to have changes take place. I'll try to find a way to streamline the process so it changes when you save a file**
 
 **Layout may be subject to change as there could be more python files**
 
