@@ -1,5 +1,5 @@
 
-# Pet AI for Twitch
+# Pet PNG for Twitch
 FalafelAI is based off of this rat bastard here holding a knife.
 ![Alt text](flaskr/static/IMG_7847.png)
 
@@ -21,7 +21,7 @@ He's here to make memes and chew gum. Still a wip project. Eventually we do want
 
 **Installing Dependencies**
 
-This is for providing virtual dependencies for the project. You need to manually install a .venv folder
+This is for providing virtual dependencies for the project. You need to manually install a .venv folder.
 1. `cd projectFolder`
 2. Create a `.venv` in the project folder directory
 3. Run `py -3 -m venv .venv`
@@ -32,15 +32,40 @@ This is for providing virtual dependencies for the project. You need to manually
 1. Execute `python .\flaskr\app.py`
 2. Go to http://localhost:5000
 3. Yipee
+4. When making changes, you need to refresh the page to reload the cache and allow the changes to take effect.
 
-**You will need to manually close the project and rerun it again to have changes take place. I'll try to find a way to streamline the process so it changes when you save a file**
+**When running this app on production, make sure to make debug false in `app.run`**
+(Although it's probs not gonna be a while til we make this in production)
+```if __name__ == "__main__":
+    app.run(debug=False, host='0.0.0.0')
+```
 
-**Layout may be subject to change as there could be more python files**
+Layout may be subject to change as there could be more files
+
+## Git practices
+When creating a new feature or fixing a bug, create a new branch:
+```
+git checkout -b feature/<whateverBranchName>
+```
+(`checkout` changes your branch to whatever branch you are changing to, `-b` means you are creating a new branch followed by the branch name)
+
+That will create a fresh environment outside of main to develop your changes in.
+
+**A general idea to follow is commit often, push once.**
+
+Of course, there isn't a hard rule on when to commit, but do it often so when there are git issues, it's much easier to resolve them without affecting your other work.
+
 
 ## Main features (for now)
+When I say PNG, I mean PNG/GIF and any other image format that the user can use for this software.
 - Web app is ran locally initially. User will need to run the software to interact with the streaming software.
-- A PNG/GIF that works similar to a PNGtuber, but also uses TTS to interact with the audience.
+- A PNG that works similar to a PNGtuber, but also uses TTS to interact with the audience.
+- Requires two PNGs, one for speaking and one for idling
+- User will be able to choose the TTS voice they want for their pet
 - Uses twitch API to react to channel point redeems, alerts (followers, subs, cheer, etc.).
+    - PNG can only have a single response per event
+- User will be able to choose which events the PNG can respond to
+- A database will be installed to save the responses so the software can reference it later
 - Can be outputted as a browser source to use in streaming software (OBS, SLOBS, Twitch Studio).
 
 ## Future Features
@@ -48,3 +73,4 @@ This is for providing virtual dependencies for the project. You need to manually
 - Give the software access to the internet so users do not have to run it locally.
 - Allow monitization to fund for OpenAI and hardware usage.
 - Username + password to allow unique accounts for each user.
+- It would be cool to be able to use this on other software like vtube studio, but this seems like a far-fetched idea.
