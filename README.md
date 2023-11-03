@@ -74,3 +74,6 @@ When I say PNG, I mean PNG/GIF and any other image format that the user can use 
 - Allow monitization to fund for OpenAI and hardware usage.
 - Username + password to allow unique accounts for each user.
 - It would be cool to be able to use this on other software like vtube studio, but this seems like a far-fetched idea.
+
+Shoutout to Licore_Art, LucidLuminary, and LittleKityKat for helping me with this project :D
+
