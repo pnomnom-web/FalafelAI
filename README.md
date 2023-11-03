@@ -22,9 +22,9 @@ He's here to make memes and chew gum. Still a wip project. Eventually we do want
 **Installing Dependencies**
 
 This is for providing virtual dependencies for the project. You need to manually install a .venv folder.
-1. `cd projectFolder`
-2. Create a `.venv` in the project folder directory
-3. Run `py -3 -m venv .venv`
+1. Go to the base project directory `cd FalafelAI`
+2. Create a `.venv` in the project folder directory (Using windows explorer or `New-Item .venv`)
+3. Run `py -3 -m venv .venv` (Make sure you have **Python 3.11** installed)
 4. Activate virtual python environment: `.venv\Scripts\activate`
 5. Install dependencies: `pip install -r requirements.txt`
 
