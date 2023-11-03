@@ -36,7 +36,8 @@ This is for providing virtual dependencies for the project. You need to manually
 
 **When running this app on production, make sure to make debug false in `app.run`**
 (Although it's probs not gonna be a while til we make this in production)
-```if __name__ == "__main__":
+```
+if __name__ == "__main__":
     app.run(debug=False, host='0.0.0.0')
 ```
 
