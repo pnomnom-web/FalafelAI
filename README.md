@@ -68,22 +68,25 @@ Of course, there isn't a hard rule on when to commit, but do it often so when th
 
 ## Main features (for now)
 When I say PNG, I mean PNG/GIF and any other image format that the user can use for this software.
-- Web app is ran locally initially. User will need to run the software to interact with the streaming software.
+~~- Web app is ran locally initially. User will need to run the software to interact with the streaming software.~~
+- Web app is going to be built to run on a server.
+- Uses Twitch as a login to the service.
 - A PNG that works similar to a PNGtuber, but also uses TTS to interact with the audience.
-- Requires two PNGs, one for speaking and one for idling
-- User will be able to choose the TTS voice they want for their pet
+- Requires two PNGs, one for speaking and one for idling.
+- User will be able to choose the TTS voice they want for their pet.
 - Uses twitch API to react to channel point redeems, alerts (followers, subs, cheer, etc.).
-    - PNG can only have a single response per event
-- User will be able to choose which events the PNG can respond to
-- A database will be installed to save the responses so the software can reference it later
+    ~~- PNG can only have a single response per event~~
+    - PNG can have one or more responses per event. If there are more than one, then it will pick randomly between each one.
+- User will be able to choose which events the PNG can respond to.
+- A database will be installed to save the responses so the software can reference it later.
 - Can be outputted as a browser source to use in streaming software (OBS, SLOBS, Twitch Studio).
 
 ## Future Features
 - Incorporate OpenAI GPT-3 (or 4) so that the PNG can have custom responses or respond to questions.
 - Give the software access to the internet so users do not have to run it locally.
 - Allow monitization to fund for OpenAI and hardware usage.
-- Username + password to allow unique accounts for each user.
 - It would be cool to be able to use this on other software like vtube studio, but this seems like a far-fetched idea.
+- Allow the Pet to respond to specific modifiers like number of bits, number of gifted subs, etc.
 
 Shoutout to Licore_Art, LucidLuminary, and LittleKityKat for helping me with this project :D
 
