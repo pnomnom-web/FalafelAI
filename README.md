@@ -28,6 +28,15 @@ This is for providing virtual dependencies for the project. You need to manually
 4. Activate virtual python environment: `.venv\Scripts\activate`
 5. Install dependencies: `pip install -r requirements.txt`
 
+**Create Environment Variables**
+1. Create a new file `.env` in the base project directory. 
+2. Open file and add these two lines
+```
+export DATABASE=schema.sql
+export APP_TOKEN= <Ask Pat for this one>
+```
+- Do not push your personal .env to GitHub as it can potentially hold sensitive data. Eventually production will have its own .env file.
+
 **To run project**
 1. Execute `python .\flaskr\app.py`
 2. Go to http://localhost:5000
