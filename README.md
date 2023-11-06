@@ -29,7 +29,7 @@ This is for providing virtual dependencies for the project. You need to manually
 5. Install dependencies: `pip install -r requirements.txt`
 
 **Create Environment Variables**
-1. Create a new file `.env` in the base directory. 
+1. Create a new file `.env` in the base project directory. 
 2. Open file and add these two lines
 ```
 export DATABASE=schema.sql
