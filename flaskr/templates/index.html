@@ -49,7 +49,17 @@
     </div>
   </nav>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do. </p>
-  <main>
+  <!--Testing stuff-->
+  <form action="{{ url_for("twitch_blueprint.authUser")}}" method="post">
+  <label for="UserID">UserID:</label>
+  <input type="text" id="id" name="id" placeholder="firstname">
+  <label for="Username">Username:</label>
+  <input type="text" id="user" name="username" placeholder="username">
+  <label for="AuthID">AuthID:</label>
+  <input type="text" id="auth" name="authID" placeholder="authID">
+  <button type="submit">Authenticate</button>
+  <!--Testing stuff-->
+    <main>
     <section></section>
     <section></section>
     <section></section>

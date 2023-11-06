@@ -2,9 +2,11 @@ import os
 import config
 from flask import Flask, request, render_template
 from database import db
+from twitch import twitch_blueprint
 
 config.load_dotenv()
 app = Flask(__name__)
+app.register_blueprint(twitch_blueprint)
 
 db_name = os.environ.get("DATABASE")
 # Configuring SQLite Database URI
@@ -28,4 +30,4 @@ def index():
 if __name__ == "__main__":
     from models import User
     create_db()
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', use_reloader=True)
