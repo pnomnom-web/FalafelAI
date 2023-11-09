@@ -6,17 +6,26 @@ from twitch import twitch_blueprint
 
 config.load_dotenv()
 app = Flask(__name__)
-app.register_blueprint(twitch_blueprint)
 
-db_name = os.environ.get("DATABASE")
-# Configuring SQLite Database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
+def create_test_app():
+    app.config['TESTING'] = True
+    app.register_blueprint(twitch_blueprint)
+    # Configuring SQLite Database URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.environ.get("DATABASE")
+    # Suppresses warning while tracking modifications
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # Initialising SQLAlchemy with Flask App
+    db.init_app(app)
 
-# Suppresses warning while tracking modifications
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
- 
-# Initialising SQLAlchemy with Flask App
-db.init_app(app)
+def create_prod_app():
+    app.register_blueprint(twitch_blueprint)
+    # Configuring SQLite Database URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.environ.get("DATABASE")
+    # Suppresses warning while tracking modifications
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # Initialising SQLAlchemy with Flask App
+    db.init_app(app)
+
 
 #Creating Database with App Context
 def create_db():
@@ -29,5 +38,6 @@ def index():
 
 if __name__ == "__main__":
     from models import User
+    create_test_app()
     create_db()
     app.run(debug=True, host='0.0.0.0', use_reloader=True)
