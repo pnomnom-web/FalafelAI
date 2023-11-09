@@ -7,6 +7,16 @@ class User(db.Model):
     username = db.Column(db.String(30),unique=True, nullable=False)
     authid = db.Column(db.String,unique=True, nullable=False)
 
+    def __init__(self, userid: int, username: str, authid: str):
+        self.userid = userid
+        self.username = username
+        self.authid = authid
+    
+    @staticmethod
+    def print_all_user(): 
+        user_data = User.query.all() 
+        return user_data
+
 class Pet(db.Model):
     __tablename__ = 'pet'
 
