@@ -1,5 +1,7 @@
 import os
 from flask import Blueprint, request, render_template
+from database import db
+from models import User
 from twitchAPI.twitch import Twitch
 from twitchAPI.helper import first
 import asyncio
@@ -8,15 +10,26 @@ import asyncio
 
 twitch_blueprint = Blueprint("twitch_blueprint", __name__)
 
+#  ---------Testing functions---------
+@twitch_blueprint.route('/users')
+def printUsers():
+    users = User.print_all_user()
+    return render_template("show_users.html", users=users)
+
 @twitch_blueprint.route('/', methods =["GET", "POST"])
 def authUser():
     if request.method == "POST":
-       id = request.form.get("id")
-       username = request.form.get("username")
-       authID = request.form.get("authID")
-       return id + username + authID
-    return render_template("index.html")
+        id = request.form.get("id")
+        username = request.form.get("username")
+        authID = request.form.get("authID")
 
+        data = User(id, username, authID)
+        db.session.add(data)
+        db.session.commit()
+        return render_template("index.html")
+
+    return render_template("index.html")
+#  ---------Testing functions---------
 
 async def twitch_example():
     # initialize the twitch instance, this will by default also create a app authentication for you
