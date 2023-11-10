@@ -33,7 +33,9 @@ This is for providing virtual dependencies for the project. You need to manually
 2. Open file and add these two lines
 ```
 export DATABASE=schema.sql
+export TEST_DATABASE=test.sql
 export APP_TOKEN= <Ask Pat for this one>
+export DEBUG=True
 ```
 - Do not push your personal .env to GitHub as it can potentially hold sensitive data. Eventually production will have its own .env file.
 
